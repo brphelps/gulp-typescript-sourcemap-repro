@@ -1,6 +1,5 @@
 let gulp = require("gulp");
 let typescript = require("gulp-typescript");
-let ngAnnotate = require("gulp-ng-annotate");
 let sourcemaps = require("gulp-sourcemaps");
 let runSequence = require("run-sequence");
 let serve = require('gulp-serve');
@@ -21,7 +20,6 @@ gulp.task('build', function () {
     return tsProject.src()
         .pipe(sourcemaps.init())
         .pipe(tsProject()).js
-        .pipe(ngAnnotate())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest("./dist"));
 });
